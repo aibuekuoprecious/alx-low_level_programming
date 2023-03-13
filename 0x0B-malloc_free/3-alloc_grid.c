@@ -9,6 +9,7 @@
  * Return: If successful, a pointer to the allocated grid.
  *         If failure, NULL.
  */
+
 int **alloc_grid(int width, int height)
 {
 	int **grid;
