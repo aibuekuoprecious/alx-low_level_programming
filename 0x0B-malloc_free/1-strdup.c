@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * _strdup - duplicates a string using malloc
@@ -29,4 +31,3 @@ char *_strdup(char *str)
 
 	return (dup);
 }
-
