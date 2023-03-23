@@ -1,49 +1,60 @@
 #include <stdio.h>
-	#include <stdlib.h>
+#include <stdlib.h>
 
+/**
+ * print_opcodes - print the opcodes of current source code
+ * @a: address of main function
+ * @num_byte: number of bytes to print
+ *
+ * Return: void
+ */
+void print_opcodes(char *a, int num_byte)
+{
+	int i;
 
-	/**
-	 * main - prints its own opcodes
-	 * @argc: number of arguments
-	 * @argv: array of arguments
-	 *
-	 * Return: Always 0 (Success)
-	 */
-	int main(int argc, char *argv[])
+	/* iterate through argc and covert each to hexa for opcode */
+	for (i = 0; i < num_byte; i++)
 	{
-		int bytes, i;
-		char *arr;
-
-
-		if (argc != 2)
+		printf("%.2hhx", a[i]);
 		{
-			printf("Error\n");
-			exit(1);
+			if (i < num_byte - 1)
+				printf(" ");
 		}
+	}
+	printf("\n");
+}
 
+/**
+ * main - print opcode of main function
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: opcode of main function
+ */
+int main(int argc, char *argv[])
+{
+	/* declare num_byte to store cmd line args */
+	int num_byte;
 
-		bytes = atoi(argv[1]);
-
-
-		if (bytes < 0)
-		{
-			printf("Error\n");
-			exit(2);
-		}
-
-
-		arr = (char *)main;
-
-
-		for (i = 0; i < bytes; i++)
-		{
-			if (i == bytes - 1)
-			{
-				printf("%02hhx\n", arr[i]);
-				break;
-			}
-			printf("%02hhx ", arr[i]);
-		}
-		return (0);
+	/* if number of arguments are wrong */
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
 	}
 
+	/* convert command line argument to integer */
+	num_byte = atoi(argv[1]);
+
+	/* if number of bytes is negative */
+	if (num_byte < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+
+	/* function call to opcode */
+	print_opcodes((char *)&main, num_byte);
+
+	return (0);
+}
