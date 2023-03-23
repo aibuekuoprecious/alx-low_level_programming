@@ -1,20 +1,13 @@
 #include "function_pointers.h"
-#include <stdio.h>
-
+#include <stdlib.h>
 /**
- * print_name - function to print name
- * @f: variable to hold string name
- * @name: name of person
- *
- * Return: void
+ * print_name - Function that prints a name
+ * @name: Type char string pointer
+ * @f: Type pointer func & char is arg
  */
 void print_name(char *name, void (*f)(char *))
 {
-	/* set condition for when f/name points to/contains nothing */
-	if (name != NULL && f != NULL)
-		return; /* return nothing */
-
-	/* call pointer to name string */
+	if (f == NULL)
+		exit(EXIT_FAILURE);
 	f(name);
 }
-
