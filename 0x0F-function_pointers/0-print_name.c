@@ -18,25 +18,3 @@ void print_name(char *name, void (*f)(char *))
 	f(name);
 }
 
-/**
- * print_string - Prints a string
- * @str: The string to print
- */
-void print_string(char *str)
-{
-	printf("%s\n", str);
-}
-
-/**
- * main - Prints the name declared
- *
- * Return : 0
- */
-int main(void)
-{
-	/* declare name */
-	char name[] = "Aibueku Precious";
-
-	print_name(name, print_string);
-	return (0); /* return 0 */
-}
