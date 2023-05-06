@@ -1,16 +1,50 @@
 #include "main.h"
 
 /**
- * print_binary - prints the binary representation of an unsigned long int
+ * _power - Calculates the result of raising a base to a given power.
+ * @base: The base of the exponent.
+ * @pow: The power of the exponent.
  *
- * @n: the unsigned long int to be printed in binary
+ * Return: The result of raising the base to the given power.
+ */
+unsigned long int _power(unsigned int base, unsigned int pow)
+{
+	unsigned long int num;
+	unsigned int i;
+
+	num = 1;
+	for (i = 1; i <= pow; i++)
+		num *= base;
+	return (num);
+}
+
+/**
+ * print_binary - Prints the binary representation of a number.
+ * @n: The number to be printed.
+ *
+ * Return: void.
  */
 void print_binary(unsigned long int n)
 {
-	if (n > 1)
+	unsigned long int dev, result;
+	char flag;
+
+	flag = 0;
+	dev = _power(2, sizeof(unsigned long int) * 8 - 1);
+
+	while (dev != 0)
 	{
-		print_binary(n >> 1);
+		result = n & dev;
+		if (result == dev)
+		{
+			flag = 1;
+			_putchar('1');
+		}
+		else if (flag == 1 || dev == 1)
+		{
+			_putchar('0');
+		}
+		dev >>= 1;
 	}
-	putchar((n & 1) ? '1' : '0');
 }
 
