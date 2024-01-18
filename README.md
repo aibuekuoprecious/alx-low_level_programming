@@ -1,6 +1,6 @@
-# ALX-C-Programming-Learnings
+# Low-Level-Programming-Learnings
 
-Welcome to my ALX C Programming Learnings repository! 🚀 Here, you'll find a comprehensive collection of my journey through the ALX Software Engineering program, specifically focusing on C programming.
+Welcome to my ALX Low-Level Programming Learnings repository! 🚀 Here, you'll find a comprehensive collection of my journey through the ALX Software Engineering program, specifically focusing on C programming.
 
 ## What's Inside:
 
